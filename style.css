@@ -142,11 +142,18 @@ li {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1.25rem 1.3rem;
-    border-radius: 1.75rem;
+    padding: 1.1rem 1.2rem;
+    border-radius: 1.5rem;
     background: linear-gradient(145deg, rgba(15, 23, 42, 0.86), rgba(15, 23, 42, 0.73));
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.18);
+    border: 0.6px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.14);
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 45px rgba(0, 0, 0, 0.18);
+    background: linear-gradient(145deg, rgba(23, 31, 56, 0.92), rgba(15, 23, 42, 0.78));
 }
 
 li input[type='checkbox'] {
