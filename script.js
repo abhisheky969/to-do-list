@@ -18,6 +18,8 @@ function createTodoNode(todo, index) {
     checkbox.addEventListener("change", ()=>{
         todo.completed = checkbox.checked;
 
+        textSpan.style.textDecoration = todo.completed ? 'line-through' : 'none';
+
         saveTodos();
     });
 
@@ -27,31 +29,30 @@ function createTodoNode(todo, index) {
 
     if(todo.completed) {
         textSpan.style.textDecoration = 'line-through';
-
-        textSpan.addEventListener('dblclick', ()=>{
-            const newText = prompt("Edit todo", todo.text);
-
-            if(newText !== null) {
-                todo.text = newText.trim();
-                textSpan.textContent = todo.text;
-                saveTodos();
-            }
-        });
-
-        const delBtn = document.createElement('button');
-        delBtn.textContent = "Delete";
-        delBtn.addEventListener('click', ()=>{
-            todos.splice(index, 1);
-            render();
-            saveTodos();
-        });
-
-        li.appnendChild(checkbox);
-        li.appendChild(textSpan);
-        li.appendChild(delBtn);
-
-        return li;
     }
+
+    textSpan.addEventListener('dblclick', ()=>{
+        const newText = prompt("Edit todo", todo.text);
+
+        if(newText !== null) {
+            todo.text = newText.trim();
+            textSpan.textContent = todo.text;
+            saveTodos();
+        }
+    });
+
+    const delBtn = document.createElement('button');
+    delBtn.textContent = "Delete";
+    delBtn.addEventListener('click', ()=>{
+        todos.splice(index, 1);
+        render();
+        saveTodos();
+    });
+    li.appendChild(checkbox);
+    li.appendChild(textSpan);
+    li.appendChild(delBtn);
+
+    return li;
 }
 
 function render() {
@@ -59,12 +60,12 @@ function render() {
 
     todos.forEach((todo, index) => {
         const node = createTodoNode(todo, index);
-        list.appnendChild(node)
+        list.appendChild(node)
     });
 }
 
 function addTodo() {
-    const text = input.ariaValueMax.trim();
+    const text = input.value.trim();
 
     if(!text) {
         return;
