@@ -15,6 +15,8 @@
     --accent-soft: rgba(148, 163, 184, 0.15);
     --todo-bg: rgba(255, 255, 255, 0.06);
     --todo-border: rgba(255, 255, 255, 0.1);
+    --todo-text: #f8fafc;
+    --todo-text-completed: rgba(226, 232, 240, 0.9);
     --button-bg-start: rgba(107, 114, 128, 0.92);
     --button-bg-end: rgba(209, 213, 219, 0.9);
     --button-shadow: rgba(148, 163, 184, 0.22);
@@ -37,8 +39,10 @@ body[data-theme='light'] {
     --accent: #2563eb;
     --accent-strong: #60a5fa;
     --accent-soft: rgba(59, 130, 246, 0.12);
-    --todo-bg: rgba(255, 255, 255, 0.95);
-    --todo-border: rgba(191, 219, 254, 0.4);
+    --todo-bg: rgba(219, 234, 254, 0.85);
+    --todo-border: rgba(147, 197, 253, 0.55);
+    --todo-text: #0f172a;
+    --todo-text-completed: rgba(51, 65, 85, 0.9);
     --button-bg-start: rgba(37, 99, 235, 0.95);
     --button-bg-end: rgba(96, 165, 250, 0.9);
     --button-shadow: rgba(37, 99, 235, 0.18);
@@ -57,7 +61,7 @@ html, body {
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
     background: radial-gradient(circle at top left, var(--bg-accent-start), transparent 18%),
                 radial-gradient(circle at bottom right, var(--bg-accent-end), transparent 20%),
                 linear-gradient(180deg, var(--bg) 0%, var(--bg-end) 100%);
@@ -251,7 +255,7 @@ li input[type='checkbox'] {
 }
 
 li span {
-    color: var(--text);
+    color: var(--todo-text);
     word-break: normal;
     white-space: normal;
     line-height: 1.5;
@@ -260,7 +264,9 @@ li span {
 
 li span.completed,
 li span[style*='line-through'] {
-    color: rgba(226, 232, 240, 0.65);
+    color: var(--todo-text-completed);
+    text-decoration: line-through;
+    opacity: 0.95;
 }
 
 li button {
