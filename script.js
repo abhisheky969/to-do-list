@@ -13,7 +13,8 @@ function saveTodos() {
 
 function setTheme(theme) {
     document.body.dataset.theme = theme;
-    themeToggle.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+    themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
+    themeToggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
     localStorage.setItem('theme', theme);
 }
 
