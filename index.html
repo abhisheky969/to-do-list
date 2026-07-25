@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>My ToDO List</h1>
-    
-    <p>Welcome to TODO List Application! Double-click to edit Todos!</p>
-    <input type="text" id="todo-input" placeholder="Enter a To-Do!">
+    <div class="app-card">
+        <h1>My ToDO List</h1>
+        <p>Welcome to TODO List Application! Double-click to edit Todos!</p>
 
-    <button id="add-btn">Add</button>
-    <ul id="todo-list"></ul>
+        <div class="controls">
+            <input type="text" id="todo-input" placeholder="Enter a To-Do!">
+            <button id="add-btn">Add</button>
+        </div>
+
+        <ul id="todo-list"></ul>
+    </div>
 
     <script src="script.js"></script>
 </body>
