@@ -8,15 +8,21 @@
 </head>
 <body>
     <div class="app-card">
-        <h1>My ToDO List</h1>
-        <p>Welcome to TODO List Application! Double-click to edit Todos!</p>
+        <section class="hero-card">
+            <div class="hero-head">
+                <h1>My ToDO List</h1>
+                <p>Welcome to TODO List Application! Double-click to edit Todos!</p>
+            </div>
 
-        <div class="controls">
-            <input type="text" id="todo-input" placeholder="Enter a To-Do!">
-            <button id="add-btn">Add</button>
-        </div>
+            <div class="controls">
+                <input type="text" id="todo-input" placeholder="Enter a To-Do!">
+                <button id="add-btn">Add</button>
+            </div>
+        </section>
 
-        <ul id="todo-list"></ul>
+        <section class="todos-card">
+            <ul id="todo-list"></ul>
+        </section>
     </div>
 
     <script src="script.js"></script>

@@ -51,17 +51,30 @@ body > * {
 
 .app-card {
     width: min(100%, 44rem);
-    padding: 2rem;
+    padding: 0;
     border-radius: 2rem;
-    background: linear-gradient(180deg, rgba(8, 17, 31, 0.95), rgba(11, 17, 32, 0.92));
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: 0 50px 120px rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(24px);
+    background: transparent;
 }
 
-.hero {
+.hero-card,
+.todos-card {
+    border-radius: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.18), rgba(168, 85, 247, 0.18));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 32px 90px rgba(124, 58, 237, 0.12);
+    backdrop-filter: blur(22px);
+    margin-bottom: 1.5rem;
+}
+
+.hero-card:last-child,
+.todos-card:last-child {
+    margin-bottom: 0;
+}
+
+.hero-head {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 h1 {
@@ -72,7 +85,7 @@ h1 {
 }
 
 p {
-    margin: 0.75rem auto 2rem;
+    margin: 0.75rem auto 0;
     max-width: 34rem;
     color: var(--muted);
     text-align: center;
@@ -138,15 +151,25 @@ p {
     gap: 1rem;
 }
 
+.todos-card {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.22), rgba(168, 85, 247, 0.22));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-card {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.18), rgba(168, 85, 247, 0.18));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 li {
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: 1.1rem 1.2rem;
     border-radius: 1.5rem;
-    background: linear-gradient(145deg, rgba(15, 23, 42, 0.86), rgba(15, 23, 42, 0.73));
-    border: 0.6px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.6px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
     transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
@@ -200,7 +223,8 @@ li button:active {
         padding: 1rem;
     }
 
-    .app-card {
+    .hero-card,
+    .todos-card {
         padding: 1.5rem;
     }
 
