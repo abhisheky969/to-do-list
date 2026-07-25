@@ -1,12 +1,26 @@
 const input = document.getElementById('todo-input')
 const addBtn = document.getElementById('add-btn')
+const themeToggle = document.getElementById('theme-toggle')
 const list = document.getElementById('todo-list')
 
+const savedTheme = localStorage.getItem('theme')
 const saved = localStorage.getItem('todos');
 const todos = saved? JSON.parse(saved) : [];
 
 function saveTodos() {
     localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+function setTheme(theme) {
+    document.body.dataset.theme = theme;
+    themeToggle.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+    localStorage.setItem('theme', theme);
+}
+
+function initTheme() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    setTheme(theme);
 }
 
 function createTodoNode(todo, index) {
@@ -79,10 +93,16 @@ function addTodo() {
 
 addBtn.addEventListener("click", addTodo);
 
+themeToggle.addEventListener('click', () => {
+    const nextTheme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+});
+
 input.addEventListener('keydown', (e)=>{
     if(e.key == 'Enter') {
         addTodo();
     }
 });
 
+initTheme();
 render();
